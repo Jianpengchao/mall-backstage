@@ -84,55 +84,65 @@ export const constantRoutes = [
     ]
   },
   {
-    path: '/icon',
+    path: '/guide',
     component: Layout,
     children: [
       {
         path: 'index',
-        component: () => import('@/views/icons/index'),
-        name: 'Icons',
+        component: () => import('@/views/guide/index'),
+        name: '',
         meta: { title: '公告信息', icon: 'icon', noCache: true }
       }
     ]
   },
   {
-    path: '/icon',
+    path: '/theme',
     component: Layout,
+    meta: {
+      title: '家具类型管理',
+      icon: 'lock',
+    },
     children: [
       {
-        path: 'index',
-        component: () => import('@/views/icons/index'),
-        name: 'Icons',
+        path: 'typelist',
+        component: () => import('@/views/theme/typelist'),
+        name: 'typelist',
+        meta: { title: '家具列表', icon: 'icon', noCache: true }
+      },
+      {
+        path: 'typeInfo',
+        component: () => import('@/views/theme/typeInfo'),
+        name: 'typeInfo',
         meta: { title: '家具类型信息', icon: 'icon', noCache: true }
       }
     ]
   },
+  // {
+  //   path: '/zip',
+  //   component: Layout,
+  //   children: [
+  //     {
+  //       path: 'index',
+  //       component: () => import('@/views/zip/index'),
+  //       name: '',
+  //       meta: { title: '家具商品信息', icon: 'icon', noCache: true }
+  //     }
+  //   ]
+  // },
   {
-    path: '/icon',
+    path: '/orderInfo',
     component: Layout,
     children: [
       {
         path: 'index',
-        component: () => import('@/views/icons/index'),
-        name: 'Icons',
-        meta: { title: '家具商品信息', icon: 'icon', noCache: true }
-      }
-    ]
-  },
-  {
-    path: '/icon',
-    component: Layout,
-    children: [
-      {
-        path: 'index',
-        component: () => import('@/views/icons/index'),
-        name: 'Icons',
+        component: () => import('@/views/orderInfo/index'),
+        name: 'orderInfo',
         meta: { title: '订单信息', icon: 'icon', noCache: true }
       }
     ]
   },
   {
-    path: '/documentation',
+    path: '/system',
     component: Layout,
     meta: {
             title: '系统管理',
@@ -140,18 +150,23 @@ export const constantRoutes = [
           },
     children: [
       {
-        path: 'index',
-        component: () => import('@/views/documentation/index'),
-        name: 'Documentation',
-        meta: { title: '用户信息', icon: 'documentation' }
+        path: 'user',
+        component: () => import('@/views/system/user'),
+        name: 'user',
+        meta: { title: '用户信息', icon: 'user' }
+      },
+      {
+        path: 'adminInfo',
+        component: () => import('@/views/system/adminInfo'),
+        name: 'adminInfo',
+        meta: { title: '管理员信息', icon: 'documentation' }
       },
       {
         path: 'index',
-        component: () => import('@/views/documentation/index'),
-        name: 'Documentation',
-        meta: { title: '管理员信息', icon: 'documentation' }
+        component: () => import('@/views/zip/index'),
+        name: 'shopInfo',
+        meta: { title: '家具商品信息', icon: 'icon', noCache: true }
       }
-    
     ]
   },
  
@@ -410,7 +425,7 @@ export const asyncRoutes = [
 ]
 
 const createRouter = () => new Router({
-  // mode: 'history', // require service support
+  mode: 'history', // require service support
   scrollBehavior: () => ({ y: 0 }),
   routes: constantRoutes
 })

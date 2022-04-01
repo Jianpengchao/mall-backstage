@@ -190,7 +190,7 @@ npm run preview -- --report
 npm run lint
 
 # Chequeo de formato de código y auto-corrección
-npm run lint -- --fix
+# npm run lint -- --fix
 ```
 
 Vaya a [Documentación](https://panjiachen.github.io/vue-element-admin-site/guide/essentials/deploy.html) para mayor información

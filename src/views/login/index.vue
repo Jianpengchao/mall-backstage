@@ -255,7 +255,7 @@ $light_gray:#eee;
 .login-container {
   min-height: 100%;
   width: 100%;
-  background-color: $bg;
+  background: url("https://img1.baidu.com/it/u=1185724849,529807400&fm=253&fmt=auto&app=138&f=JPEG?w=836&h=500");
   overflow: hidden;
 
   .login-form {

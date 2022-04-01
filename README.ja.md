@@ -186,7 +186,7 @@ npm run preview -- --report
 npm run lint
 
 # code format check and auto fix
-npm run lint -- --fix
+# npm run lint -- --fix
 ```
 
 詳細は [Documentation](https://panjiachen.github.io/vue-element-admin-site/guide/essentials/deploy.html) を参照してください。

@@ -6,11 +6,11 @@ import 'normalize.css/normalize.css' // a modern alternative to CSS resets
 
 import Element from 'element-ui'
 import './styles/element-variables.scss'
-import enLang from 'element-ui/lib/locale/lang/en'// 如果使用中文语言包请默认支持，无需额外引入，请删除该依赖
+// import enLang from 'element-ui/lib/locale/lang/en'// 如果使用中文语言包请默认支持，无需额外引入，请删除该依赖
 
 import '@/styles/index.scss' // global css
-//引入mock
-require ('./mock.js')
+// 引入mock
+require('./mock.js')
 import App from './App'
 import store from './store'
 import router from './router'
@@ -20,8 +20,16 @@ import './permission' // permission control
 import './utils/error-log' // error log
 
 import * as filters from './filters' // global filters
-import axios from 'axios';
-Vue.prototype.$axios = axios;
+import axios from 'axios'
+Vue.prototype.$axios = axios
+import qs from 'qs'
+Vue.prototype.$qs = qs
+import moment from 'moment/moment'
+Vue.filter('moment', function(value, formatString) {
+  formatString = formatString || 'YYYY-MM-DD HH:mm:ss'
+  return moment(value).format(formatString)
+})
+
 /**
  * If you don't want to use mock-server
  * you want to use MockJs for mock api
@@ -36,12 +44,12 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 Vue.use(Element, {
-  size: Cookies.get('size') || 'medium', // set element-ui default size
-  locale: enLang // 如果使用中文，无需设置，请删除
+  size: Cookies.get('size') || 'medium' // set element-ui default size
+  // locale: enLang // 如果使用中文，无需设置，请删除
 })
 
 // register global utility filters
-Object.keys(filters).forEach(key => {
+Object.keys(filters).forEach((key) => {
   Vue.filter(key, filters[key])
 })
 
@@ -51,5 +59,5 @@ new Vue({
   el: '#app',
   router,
   store,
-  render: h => h(App)
+  render: (h) => h(App)
 })
